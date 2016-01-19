@@ -1,7 +1,680 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="description" content="Ja Whae Kang's Portfolio Website">
+	<meta name="author" content="Ja Whae Kang">
+  
+  <title>DesignKang.com</title>
+
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	
+	<script src="http://designkang.com/js/jquery.bxslider.min.js"></script>
+	<link href="http://designkang.com/css/jquery.bxslider.css" rel="stylesheet" />	
+
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+	
+	<link href="http://designkang.com/css/reset.css" rel="stylesheet" />
+
+	<style>
+	<!--
+		
+		* {box-sizing: border-box;}
+		
+        .desktop {display: block;}
+        .mobile {display: none;}
+        
+		body, html {margin:0; padding:0; height: 100% !important; background: #1e1e1e; font-size: 14px; font-weight: 300;}
+		
+		h1, h2, h3 {font-family: 'Lato', sans-serif; margin-bottom: 1em; text-transform: uppercase; font-weight: 300;}
+		
+		h1 {font-size: 4em;}
+		h2 {font-size: 3.5em;}
+		h3 {font-size: 2.5em;}
+		p {max-width: 960px; font-family: 'Merriweather', serif; font-size: 1em; line-height: 1.4em; margin: 0 auto 1em;}
+			.copyright {font-size: 0.9em; font-family: 'Lato', sans-serif;}
+		strong {font-weight: 700;}
+		
+		.clearfix {clear: both;}
+		
+		#section1 img, 
+		#section2 img, 
+		#section3 img, 
+		#section4 img, 
+		#section5 img, 
+		#section6 img {width: 100%; height: auto;  vertical-align: middle;}
+		
+		a {color:#000; text-decoration: none; outline: none; border: 0;}
+		a:hover {color:#000; text-decoration: underline; outline: none; border: 0;}
+		a:visited {color:#000; text-decoration: none; outline: none; border: 0;}
+		
+		/* a img {-webkit-filter: grayscale(100%); filter: gray; filter: grayscale(100%); filter: url(desaturate.svg#greyscale); transition: all 1s;}
+		a img:hover {-webkit-filter: grayscale(0%); filter: none; filter: grayscale(0%);} */
+
+		a img {opacity:0.3; -webkit-filter: grayscale(100%); filter: gray; filter: grayscale(100%); filter: url(desaturate.svg#greyscale);}
+		a img:hover {opacity: 1; -webkit-filter: grayscale(0%); filter: none; filter: grayscale(0%);}
+		
+		a img.exception {opacity: 1!important; border: 0px !important;}
+		
+		.width-full {width:100%; float:left;}
+		.width-half {width:50%; float:left;}
+		.width-quarter {width:25%; float:left;}
+		
+		.float-right {float:right;}
+		
+		#wrapper {width: 100%; transition: all 0.5s; z-index: 999; position: relative;}
+			.wrapper-width-half {width: 50% !important;}
+			
+		#side-web1, 
+		#side-web2, 
+		#side-web3, 
+		#side-web4, 
+		#side-web5,
+		#side-web6,
+		#side-mobile1, 
+		#side-mobile2 {background: #000; color: #fff;}
+		
+			#side-mobile1 p, #side-mobile2 p {width: 84%; margin:0 auto 1em; font-size: 12px;}
+		
+		#side-logo1, 
+		#side-logo2, 
+		#side-logo3, 
+		#side-logo4, 
+		#side-logo5,
+		#side-logo6 {background: #fff; color: #000; }				
+		#side-photo {background: #1e1e1e; color: #000; overflow:hidden;}
+		
+			#photoSliderWrapper {width: 90%; max-width:900px; margin: 0 auto; top: 50%; transform: translateY(-50%); position: relative;}
+			#photoSliderWrapper img {width: 100% !important;}				
+			#appSliderWrapper {padding:30px 0px 20px; width: 50%; max-width:480px; margin: 0 auto;}
+			#appSliderWrapper img {width: 100% !important;}
+		
+		.side-panel {position:fixed; text-align: center; padding: 0px 20px; width: 50%; right: -50%; height: 100%; z-index:9999; transition: right 0.5s;}
+			.photo-panel {width: 100%!important; right: -100%;}			
+			.show-side {right: 0 !important;}		
+			.close-side {position:absolute; right: 10px; top: 20px; z-index: 99999;}			
+
+			.side-panel h1 {margin: 20px 0px 0px 34px; text-align: left; width:70%; font-weight: 400; color:#85f1e1;}
+			.side-panel h3 {text-align: center; font-weight: 400; margin-bottom:5px;}
+			.side-panel img {width: 50%;}
+		
+			.side-panel a.btn-white {font-family: 'Lato', sans-serif; padding: 14px 0px; background: #eaff00; border: 1px solid #eaff00; font-weight: 400; margin: 28px auto; display: block; width: 164px; text-transform: uppercase; transition: all 0.5s;}
+			.side-panel a.btn-white:hover {background: #000; border: 1px solid #eaff00; color:#eaff00; text-decoration: none;}
+		
+		#section2, #section4 {background: #000000;}
+		#section3, #section5 {background: #ffffff;}
+		#section6 {position:relative; background: #fff; text-align: center; padding: 80px 20px; min-height: 740px;}
+			#portrait {width: auto !important; max-width: 80%; margin-bottom: 30px;}
+		
+		@media (max-width: 1279px) {
+		
+			#appSliderWrapper {max-width:300px;}
+		}
+		
+		@media (max-width: 767px) {
+            
+            .desktop {display: none;}
+            .mobile {display: block;}            
+            
+            h1 {font-size: 2.8em;}
+		    h2 {font-size: 2.2em;}
+		    h3 {font-size: 1.8em;}
+
+			#side-mobile1 p, #side-mobile2 p {width: 90%; margin:0 auto 0.8em; font-size: 12px;}
+            
+            .side-panel {right:-100%; width:100%;}
+			.side-panel img {width: 80%;}
+			
+			.close-side img {width: 50%;}
+			
+			.close-side {right: 0px; top: 15px;}
+			
+			.width-full {width:100%;}
+			.width-half {width:100%;}
+			.width-quarter {width:50%;}
+			.wrapper-width-half {width: 100% !important;}
+		    #section6 {min-height: 360px;}
+		}
+	
+	-->
+	</style>
+  
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+	<div id="navAnchors" class="desktop" style="position: absolute; top:0; left:0; z-index:0; width:50%; overflow:hidden; ">
+	
+		<div id="anchor1"><img src="images/nav_img2.jpg" style="width:150%; height: auto; display: block;"/></div>
+		<div id="anchor2"><img src="images/nav_img2.jpg" style="width:100%; height: auto; display: block;"/></div>
+		<div id="anchor3"><img src="images/nav_img2.jpg" style="width:100%; height: auto; display: block;"/></div>
+		<div id="anchor4"><img src="images/nav_img2.jpg" style="width:100%; height: auto; display: block;"/></div>
+		<div id="anchor5"><img src="images/nav_img2.jpg" style="width:100%; height: auto; display: block;"/></div>
+		<div id="anchor6"><img src="images/nav_img2.jpg" style="width:100%; height: auto; display: block;"/></div>
+		<div id="anchor7" style="background:#fff;"></div>
+
+	</div>
+	
+
+	<div class="side-panel" id="side-web1">	
+		<a href="#section3" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section2" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		<img src="images/web01-side.jpg" />
+		<h3>Discount 4 Health</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a health supplementary product supplier in Las Vegas, Nevada<br>
+		Responsive Design / Jquery / Word Press</p>	
+		<a href="http://www.healthfoodsvegas.com" class="btn-white" target="_blank">Visit this website</a>
+
+	</div>
+	
+	<div class="side-panel" id="side-web2">
+		<a href="#section3" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>	
+		<a href="#section2" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		<img src="images/web02-side.jpg" />
+		<h3>United Solutions</h3>
+		<p><strong>(2014)</strong></p>
+		<p>an international importing/exporting specialist in Las Vegas, Nevada<br>
+		Responsive Design / Jquery / Word Press</p>	
+		<a href="http://www.unitedsols.com" class="btn-white" target="_blank">Visit this website</a>		
+	</div>
+
+	<div class="side-panel" id="side-web3">
+		<a href="#section3" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section2" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		<img src="images/web03-side.jpg" />
+		<h3>Brighton Laboratory</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a customized analytical testing service provider in Las Vegas, Nevada<br>
+		Responsive Design / Jquery / Word Press</p>	
+		<a href="http://www.brightonlab.com" class="btn-white" target="_blank">Visit this website</a>		
+	</div>
+	
+	<div class="side-panel" id="side-web4">
+		<a href="#section3" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section2" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		<img src="images/web04-side.jpg" />
+		<h3>Fright Dome at Circus Circus</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a case of transforming a traditional table and flash-based website into a fully responsive html5 and css-based website.<br>
+		<span class="copyright">&copy;2015 MGM Resorts International&reg;</span></p>
+		<a href="http://www.frightdome.com" class="btn-white" target="_blank">Visit this website</a>		
+	</div>	
+	
+	<div class="side-panel" id="side-web5">
+		<a href="#section3" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section2" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		<img src="images/web05-side.jpg" />
+		<h3>Las Vegas Arena</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a site mainly designed by a teammate, but coded and built by me. The splash page design was done by me.<br>
+		Responsive Design / HTML5 Video / CSS3 / Jquery<br>
+		<span class="copyright">&copy;2015 MGM Resorts International&reg;</span></p>
+		<a href="http://arenalasvegas.com" class="btn-white" target="_blank">Visit this website</a>				
+	</div>
+	
+	<div class="side-panel" id="side-web6">
+		<a href="#section3" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section2" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		<img src="images/web06-side.jpg" />
+		<h3>MGM Grand Dining Page</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a landing page/micro-site dedicated to restaurants at MGM Grand Las Vegas.<br>
+		Responsive Design / Jquery<br>
+		<span class="copyright">&copy;2015 MGM Resorts International&reg;</span></p>
+		<a href="http://mgmgrand.com/dine/" class="btn-white" target="_blank">Visit this website</a>				
+	</div>		
+
+	<div class="side-panel" id="side-logo1">
+		<a href="#section6" class="close-side desktop"><img src="images/btn_close_black.png" class="exception" /></a>
+		<a href="#section3" class="close-side mobile"><img src="images/btn_close_black.png" class="exception" /></a>
+		<img src="images/logo01.jpg" />
+		<h3>Orange Production</h3>
+		<p><strong>(2013)</strong></p>
+		<p>a media production company<br>
+		Torrance, California</p>
+		
+	</div>
+	
+	<div class="side-panel" id="side-logo2">
+		<a href="#section6" class="close-side desktop"><img src="images/btn_close_black.png" class="exception" /></a>
+		<a href="#section3" class="close-side mobile"><img src="images/btn_close_black.png" class="exception" /></a>
+		<img src="images/logo07.jpg" />
+		<h3>Inevitable Games</h3>
+		<p><strong>(2009)</strong></p>
+		<p>an independent game developer<br>
+		Manila, Philippines</p>
+	</div>
+
+	<div class="side-panel" id="side-logo3">
+		<a href="#section6" class="close-side desktop"><img src="images/btn_close_black.png" class="exception" /></a>
+		<a href="#section3" class="close-side mobile"><img src="images/btn_close_black.png" class="exception" /></a>
+		<img src="images/logo03.jpg" />
+		<h3>Discount 4 Health</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a health supplementary product supplier<br>
+		Las Vegas, Nevada</p>		
+	</div>
+	
+	<div class="side-panel" id="side-logo4">
+		<a href="#section6" class="close-side desktop"><img src="images/btn_close_black.png" class="exception" /></a>
+		<a href="#section3" class="close-side mobile"><img src="images/btn_close_black.png" class="exception" /></a>
+		<img src="images/logo04.jpg" />
+		<h3>United Solutions</h3>
+		<p><strong>(2014)</strong></p>
+		<p>an international importing/exporting specialist<br>
+		Las Vegas, Nevada</p>			
+	</div>	
+	
+	<div class="side-panel" id="side-logo5">
+		<a href="#section6" class="close-side desktop"><img src="images/btn_close_black.png" class="exception" /></a>
+		<a href="#section3" class="close-side mobile"><img src="images/btn_close_black.png" class="exception" /></a>
+		<img src="images/logo05.jpg" />
+		<h3>Brighton Laboratory</h3>
+		<p><strong>(2014)</strong></p>
+		<p>a customized analytical testing service provider<br>
+		Las Vegas, Nevada</p>			
+	</div>
+	
+	<div class="side-panel" id="side-logo6">
+		<a href="#section6" class="close-side desktop"><img src="images/btn_close_black.png" class="exception" /></a>
+		<a href="#section3" class="close-side mobile"><img src="images/btn_close_black.png" class="exception" /></a>
+		<img src="images/logo06.jpg" />
+		<h3>Pirates of Space</h3>
+		<p><strong>(2004)</strong></p>
+		<p>a professional e-sport team<br>
+		Seoul, Republic of Korea</p>		
+	</div>			
+
+	<div class="side-panel" id="side-mobile1">
+		<a href="#anchor6" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section4" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		
+			<div id="appSliderWrapper">
+				<ul id="appSlider1" class="bxslider">
+				  <li><img src="images/mobile01-0-side.jpg" /></li>
+				  <li><img src="images/mobile01-1-side.jpg" /></li>
+				  <li><img src="images/mobile01-2-side.jpg" /></li>
+				  <li><img src="images/mobile01-3-side.jpg" /></li>
+				  <li><img src="images/mobile01-4-side.jpg" /></li>
+				</ul>
+			</div>		
+
+			<h3>WizPedia</h3>
+			<p>(2012)</p>
+			<p>
+			WizPedia is all about how people live. By sharing tips from everyday situations - from how to clean a toilet with a can of coke to 
+			how to delight your boss in 5 seconds - we create a social collection of wisdom in life. 			
+			</p>
+
+			<p>I was freelanced to create the app's mobile UI and icon graphics. This app was for Android and discontinued in 2014.</p>	
+			
+	</div>
+	
+	<div class="side-panel" id="side-mobile2">
+		<a href="#anchor6" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section4" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		
+			<div id="appSliderWrapper">
+				<ul id="appSlider2" class="bxslider">
+				  <li><img src="images/mobile02-0-side.jpg" /></li>
+				  <li><img src="images/mobile02-1-side.jpg" /></li>
+				  <li><img src="images/mobile02-2-side.jpg" /></li>
+				  <li><img src="images/mobile02-3-side.jpg" /></li>
+				  <li><img src="images/mobile02-4-side.jpg" /></li>
+				  <li><a href="https://www.youtube.com/watch?v=bdIkm10FWpI" target="_blank"><img src="images/mobile02-5-side.jpg" class="exception" /></a></li>
+				</ul>
+			</div>		
+
+			<h3>No Brake!</h3>
+			<p>(2010)</p>
+			<p>
+			No Brake! is a fast-paced game of survival on the road. Players control a car 
+			driving on a busy highway with the accelerator stuck and with no brakes to slow down. 
+			While your speed constantly increases, you must avoid deadly collisions and determined 
+			cops who are out to get you. </p>
+
+			<p>No Brake! was featured in "New and Noteworthy" and "What's Hot" by Apple in February 2010. 
+			It was also ranked as top 168 out of 300,000 apps and games on App Store, top 100 in the Game 
+			category and top 7 in the Racing category. It was a joint project with a software developer. I lead the project while I did game design, 
+			game graphics, and sound editing. It has been discontinued since 2014.</p>			
+			
+	</div>
+
+	<div class="side-panel photo-panel" id="side-photo">
+		<a href="#anchor7" class="close-side desktop"><img src="images/btn_close_white.png" class="exception" /></a>
+		<a href="#section5" class="close-side mobile"><img src="images/btn_close_white.png" class="exception" /></a>
+		
+			<div id="photoSliderWrapper">
+				<ul id="photoSlider" class="bxslider">
+				  <li><img src="images/photo_002.jpg" /></li>
+				  <li><img src="images/photo_003.jpg" /></li>
+				  <li><img src="images/photo_004.jpg" /></li>
+				  <li><img src="images/photo_001.jpg" /></li>
+				  <li><img src="images/photo_005.jpg" /></li>
+				  <li><img src="images/photo_006.jpg" /></li>
+				  <li><img src="images/photo_007.jpg" /></li>
+				  <li><img src="images/photo_008.jpg" /></li>
+				  <li><img src="images/photo_009.jpg" /></li>
+				  <li><img src="images/photo_010.jpg" /></li>
+				  <li><img src="images/photo_011.jpg" /></li>
+				  <li><img src="images/photo_012.jpg" /></li>
+				  <li><img src="images/photo_013.jpg" /></li>
+				  <li><img src="images/photo_014.jpg" /></li>
+				  <li><img src="images/photo_015.jpg" /></li>
+				  <li><img src="images/photo_016.jpg" /></li>
+				  <li><img src="images/photo_018.jpg" /></li>
+				  <li><img src="images/photo_019.jpg" /></li>
+				  <li><img src="images/photo_020.jpg" /></li>
+				  <li><img src="images/photo_021.jpg" /></li>
+				  <li><img src="images/photo_023.jpg" /></li>
+				  <li><img src="images/photo_024.jpg" /></li>
+				  <li><img src="images/photo_026.jpg" /></li>
+				  <li><img src="images/photo_027.jpg" /></li>
+				  <li><img src="images/photo_028.jpg" /></li>
+				</ul>
+			</div>
+			
+	</div>
+
+	<div id="wrapper" class="width-full">
+	
+		<div id="section1" class="width-full">
+			<img src="images/home.jpg" class="desktop"/>
+            <img src="images/home_mobile.jpg" class="mobile"/>
+		</div>
+
+		<div id="section2" class="width-full">
+			<div class="width-half float-right">
+				<img src="images/web_title.jpg" />
+			</div>				
+			<div class="width-quarter">
+				<a href="#anchor1" id="open-web1"><img src="images/web01.jpg" /></a>	
+			</div>			
+			<div class="width-quarter">
+				<a href="#anchor1" id="open-web2"><img src="images/web02.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor1" id="open-web3"><img src="images/web03.jpg" /></a>
+			</div>			
+			<div class="width-quarter">
+				<a href="#anchor1" id="open-web4"><img src="images/web04.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor1" id="open-web5"><img src="images/web05.jpg" /></a>
+			</div>			
+			<div class="width-quarter">
+				<a href="#anchor1" id="open-web6"><img src="images/web06.jpg" /></a>
+			</div>
+		</div>		
+		
+		<div id="section3" class="width-full">
+			<div class="width-half">
+				<img src="images/logo_title.jpg" />
+			</div>			
+			<div class="width-quarter">
+				<a href="#anchor2" id="open-logo1"><img src="images/logo01.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor2" id="open-logo2"><img src="images/logo07.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor2" id="open-logo3"><img src="images/logo03.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor2" id="open-logo4"><img src="images/logo04.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor2" id="open-logo5"><img src="images/logo05.jpg" /></a>
+			</div>
+			<div class="width-quarter">
+				<a href="#anchor2" id="open-logo6"><img src="images/logo06.jpg" /></a>
+			</div>			
+		</div>				
+		
+		<div id="section4" class="width-full">
+			<div class="width-half float-right">
+				<img src="images/mobile_title.jpg" />
+			</div>						
+			
+			<div class="width-quarter">
+				<a href="#anchor3" id="open-mobile2"><img src="images/mobile02.jpg" /></a>
+			</div>
+			
+			<div class="width-quarter">
+				<a href="#anchor3" id="open-mobile1"><img src="images/mobile01.jpg" /></a>
+			</div>
+			
+		</div>			
+
+		<div id="section5" class="width-full">
+			<a href="#anchor3" id="open-photo"><img src="images/photo_title.jpg" class="desktop exception"/></a>
+			<a href="#anchor3" id="open-photo"><img src="images/photo_title_mobile.jpg" class="mobile exception"/></a>
+		</div>	
+
+		<div id="section6" class="width-full">
+
+				<img src="images/me360.gif" id="portrait" />
+				<h3>ABOUT JA WHAE</h3>
+				<p>
+				Born on December 27, 1979 in South Korea<br>
+				10+ years of professional digital design experience<br>
+				Professional skills in Adobe Photoshop and Dreamweaver<br>	
+				Currently works for MGM Resorts International
+				</p>
+				
+				<br><bR><p>For questions and inquiries<br>
+				<strong><a href="mailto:hawaiikang@gmail.com">hawaiikang@gmail.com</a></strong></p>								
+
+		</div>	
+
+	</div>
+
+<script>
+
+	$( "a.close-side" ).click(function() {
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");	
+		$( "#side-photo" ).removeClass("show-side");	
+		
+		$( "#wrapper" ).removeClass( "wrapper-width-half" );
+	});	
+	
+
+
+	$( "a#open-web1" ).click(function() {		
+		$( "#side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");	
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-web1" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+
+	$( "a#open-web2" ).click(function() {
+		$( "#side-web1, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-web2" ).addClass("show-side");			
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+
+	$( "a#open-web3" ).click(function() {
+		$( "#side-web1, #side-web2, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");			
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-web3" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+	$( "a#open-web4" ).click(function() {
+		$( "#side-web1, #side-web2, #side-web3, #side-web5, #side-web6" ).removeClass("show-side");			
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-web4" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+	$( "a#open-web5" ).click(function() {
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web6" ).removeClass("show-side");			
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-web5" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+	$( "a#open-web6" ).click(function() {
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5" ).removeClass("show-side");			
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-web6" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+		
+	
+
+	$( "a#open-logo1" ).click(function() {		
+		$( "#side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-logo1" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+
+	$( "a#open-logo2" ).click(function() {
+		$( "#side-logo1, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-logo2" ).addClass("show-side");			
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+
+	$( "a#open-logo3" ).click(function() {
+		$( "#side-logo1, #side-logo2, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");			
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-logo3" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+	$( "a#open-logo4" ).click(function() {
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo5, #side-logo6" ).removeClass("show-side");			
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-logo4" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+	$( "a#open-logo5" ).click(function() {
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo6" ).removeClass("show-side");			
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-logo5" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+	$( "a#open-logo6" ).click(function() {
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5" ).removeClass("show-side");			
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");				
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-logo6" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});
+	
+
+	
+	$( "a#open-mobile1" ).click(function() {		
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-mobile2" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-mobile1" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});	
+	
+	$( "a#open-mobile2" ).click(function() {		
+		$( "#side-logo1, #side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-mobile1" ).removeClass("show-side");
+		$( "#side-photo" ).removeClass("show-side");
+		
+		$( "#side-mobile2" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});		
+
+	
+	
+	$( "a#open-photo" ).click(function() {		
+		$( "#side-logo1, side-logo2, #side-logo3, #side-logo4, #side-logo5, #side-logo6" ).removeClass("show-side");	
+		$( "#side-web1, #side-web2, #side-web3, #side-web4, #side-web5, #side-web6" ).removeClass("show-side");	
+		$( "#side-mobile1, #side-mobile2" ).removeClass("show-side");
+				
+		$( "#side-photo" ).addClass("show-side");	
+		$( "#wrapper" ).addClass( "wrapper-width-half" );
+	});		
+	
+</script>
+
+
+<script>
+
+	$(window).load(function(){
+		$('#photoSlider').bxSlider({
+		  mode: 'fade',
+		  pager: false
+		});
+		
+		$('#appSlider1').bxSlider({pager: false});
+		$('#appSlider2').bxSlider({pager: false});
+	});
+
+</script>
+
+  <script>
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 500);
+	        return false;
+	      }
+	    }
+	  });
+	});
+	</script>
 </body>
 </html>
